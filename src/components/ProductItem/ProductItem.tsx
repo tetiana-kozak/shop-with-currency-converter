@@ -15,7 +15,7 @@ const ProductItem = (props: Props) => {
         </Typography>
         <div className="buy-box">
           <Typography component="div" className="price">
-            750 EUR
+            10000 UAH
           </Typography>
           <button className="buy-button">Buy</button>
         </div>
