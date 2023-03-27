@@ -1,0 +1,20 @@
+.currency-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  .button {
+    padding: 5px 20px;
+    background-color: #fff;
+    border: #252525 solid 1px;
+    font-size: 16px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    &:hover {
+      background-color: #252525;
+      color: #fff;
+      cursor: pointer;
+      transition: all ease-in-out 0.3s;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.product-card {
+  .MuiTypography-root {
+    &.title {
+      font-weight: 600;
+      font-size: 26px;
+    }
+    &.description {
+      margin: 20px 0;
+    }
+
+    &.price {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .buy-box {
+    display: flex;
+    justify-content: space-between;
+    .buy-button {
+      padding: 6px 20px;
+      background-color: #fff;
+      border: #252525 solid 1px;
+      border-radius: 3px;
+      font-size: 20px;
+      &:hover {
+        background-color: #252525;
+        color: #fff;
+        cursor: pointer;
+        transition: all ease-in-out 0.3s;
+      }
+    }
+  }
+}
+.css-463vpl-MuiGrid-root {
+  margin: 0;
+}
