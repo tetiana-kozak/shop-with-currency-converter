@@ -1,4 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { addProductToTotal } from '../../redux/totalReducer'
 import './ProductItem.scss'
 
 type Props = {
@@ -8,6 +10,8 @@ type Props = {
 }
 
 const ProductItem = ({ title, description, price }: Props) => {
+  const dispatch = useAppDispatch()
+
   return (
     <Card variant="outlined">
       <CardContent className="product-card">
@@ -21,7 +25,12 @@ const ProductItem = ({ title, description, price }: Props) => {
           <Typography component="div" className="price">
             {price} UAH
           </Typography>
-          <button className="buy-button">Buy</button>
+          <button
+            className="buy-button"
+            onClick={() => dispatch(addProductToTotal(price))}
+          >
+            Buy
+          </button>
         </div>
       </CardContent>
     </Card>
