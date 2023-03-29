@@ -1,21 +1,25 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import './ProductItem.scss'
 
-type Props = {}
+type Props = {
+  title: string
+  description: string
+  price: number
+}
 
-const ProductItem = (props: Props) => {
+const ProductItem = ({ title, description, price }: Props) => {
   return (
     <Card variant="outlined">
       <CardContent className="product-card">
         <Typography variant="h5" className="title">
-          iPhone 8
+          {title}
         </Typography>
         <Typography component="p" className="description">
-          This is iPhone 8
+          {description}
         </Typography>
         <div className="buy-box">
           <Typography component="div" className="price">
-            10000 UAH
+            {price} UAH
           </Typography>
           <button className="buy-button">Buy</button>
         </div>

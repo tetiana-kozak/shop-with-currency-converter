@@ -1,10 +1,10 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import './App.scss'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
 import CurrencyButtons from '../../components/CurrencyButtons/CurrencyButtons'
-import ProductItem from '../../components/ProductItem/ProductItem'
 import Total from '../../components/Total/Total'
+import ProductItems from '../../components/ProductItem/ProductItems'
 
 type Props = {}
 const App = (props: Props) => {
@@ -21,26 +21,7 @@ const App = (props: Props) => {
         </Typography>
         <CurrencyButtons />
         <Total />
-        <Grid container spacing={4} sx={{ margin: '40px 0' }}>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <ProductItem />
-          </Grid>
-        </Grid>
+        <ProductItems />
       </Container>
     </StyledEngineProvider>
   )
