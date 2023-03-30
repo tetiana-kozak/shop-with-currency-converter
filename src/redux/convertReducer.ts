@@ -13,14 +13,18 @@ export const convertSlice = createSlice({
             action.payload.totalPrice / action.payload.currencies.USD
           ) + 'USD'
         )
-        return action.payload.totalPrice / action.payload.currencies.USD
+        return Math.round(
+          action.payload.totalPrice / action.payload.currencies.USD
+        )
       } else if (action.payload.currency === 'EUR') {
         console.log(
           Math.round(
             action.payload.totalPrice / action.payload.currencies.EUR
           ) + 'EUR'
         )
-        return action.payload.totalPrice / action.payload.currencies.EUR
+        return Math.round(
+          action.payload.totalPrice / action.payload.currencies.EUR
+        )
       } else if (action.payload.currency === 'PLN') {
         console.log(
           Math.round(
