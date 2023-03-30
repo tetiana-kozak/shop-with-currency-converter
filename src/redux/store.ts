@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import currencyReducer from './currencyReducer'
 import totalReducer from './totalReducer'
 
 export const store = configureStore({
   reducer: {
     totalPrice: totalReducer,
+    currencyChange: currencyReducer,
   },
 })
 

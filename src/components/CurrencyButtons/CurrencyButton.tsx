@@ -1,7 +1,12 @@
 type Props = {
-  children: React.ReactNode
+  currency: string
+  selectedCurrency: (currency: string) => void
 }
-const CurrencyButton = ({ children }: Props) => {
-  return <button className="button">{children}</button>
+const CurrencyButton = ({ currency, selectedCurrency }: Props) => {
+  return (
+    <button className="button" onClick={() => selectedCurrency(currency)}>
+      {currency}
+    </button>
+  )
 }
 export default CurrencyButton

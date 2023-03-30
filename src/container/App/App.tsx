@@ -5,9 +5,18 @@ import { StyledEngineProvider } from '@mui/material/styles'
 import CurrencyButtons from '../../components/CurrencyButtons/CurrencyButtons'
 import Total from '../../components/Total/Total'
 import ProductItems from '../../components/ProductItem/ProductItems'
+import { useEffect } from 'react'
+import { useAppDispatch } from '../../redux/hooks'
+import { fetchRate } from '../../redux/currencyReducer'
 
 type Props = {}
 const App = (props: Props) => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchRate())
+  }, [dispatch])
+
   return (
     <StyledEngineProvider injectFirst>
       <CssBaseline />
