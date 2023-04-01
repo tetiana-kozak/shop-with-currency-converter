@@ -1,4 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
+import { converting } from '../../redux/convertReducer'
+import { Currencies } from '../../redux/currencyReducer'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addProductToTotal } from '../../redux/totalReducer'
 import './ProductItem.scss'
@@ -7,9 +9,19 @@ type Props = {
   title: string
   description: string
   price: number
+  convertToSelectedCurrency: (price: number, selectedCurrency: string) => number
 }
 
-const ProductItem = ({ title, description, price }: Props) => {
+const ProductItem = ({
+  title,
+  description,
+  price,
+  convertToSelectedCurrency,
+}: Props) => {
+  const isConverted = useAppSelector((state) => state.convertingPrice)
+
+  const selectedCurrency = useAppSelector((state) => state.convertingPrice)
+
   const dispatch = useAppDispatch()
 
   return (
@@ -23,7 +35,8 @@ const ProductItem = ({ title, description, price }: Props) => {
         </Typography>
         <div className="buy-box">
           <Typography component="div" className="price">
-            {price} UAH
+            {convertToSelectedCurrency(price, selectedCurrency)}{' '}
+            {selectedCurrency}
           </Typography>
           <button
             className="buy-button"

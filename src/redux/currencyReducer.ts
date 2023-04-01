@@ -5,8 +5,10 @@ export type Currencies = {
   USD: number
   EUR: number
   PLN: number
+  UAH: number
+  [key: string]: number
 }
-const initialState: Currencies = { USD: 0, EUR: 0, PLN: 0 }
+const initialState: Currencies = { USD: 0, EUR: 0, PLN: 0, UAH: 0 }
 
 export const fetchRate = createAsyncThunk<Currencies, undefined>(
   'fetchRate',
@@ -23,6 +25,7 @@ export const fetchRate = createAsyncThunk<Currencies, undefined>(
       USD: filteredCurrency[0].rate,
       EUR: filteredCurrency[1].rate,
       PLN: filteredCurrency[2].rate,
+      UAH: 1,
     }
 
     return filteredCurrencyObj

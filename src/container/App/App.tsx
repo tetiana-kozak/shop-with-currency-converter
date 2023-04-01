@@ -6,7 +6,7 @@ import CurrencyButtons from '../../components/CurrencyButtons/CurrencyButtons'
 import Total from '../../components/Total/Total'
 import ProductItems from '../../components/ProductItem/ProductItems'
 import { useEffect } from 'react'
-import { useAppDispatch } from '../../redux/hooks'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchRate } from '../../redux/currencyReducer'
 
 type Props = {}
@@ -16,6 +16,16 @@ const App = (props: Props) => {
   useEffect(() => {
     dispatch(fetchRate())
   }, [dispatch])
+
+  const currencies = useAppSelector((state) => state.currencyChange)
+
+  const convertToSelectedCurrency = (
+    price: number,
+    selectedCurrency: string
+  ) => {
+    const result = Math.round(price / currencies[selectedCurrency])
+    return result
+  }
 
   return (
     <StyledEngineProvider injectFirst>
@@ -30,7 +40,7 @@ const App = (props: Props) => {
         </Typography>
         <CurrencyButtons />
         <Total />
-        <ProductItems />
+        <ProductItems convertToSelectedCurrency={convertToSelectedCurrency} />
       </Container>
     </StyledEngineProvider>
   )
