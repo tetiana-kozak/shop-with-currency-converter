@@ -2,13 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export type Currencies = {
-  USD: number
-  EUR: number
-  PLN: number
-  UAH: number
   [key: string]: number
 }
 const initialState: Currencies = { USD: 0, EUR: 0, PLN: 0, UAH: 0 }
+
+const currencyList = ['USD', 'EUR', 'PLN']
 
 export const fetchRate = createAsyncThunk<Currencies, undefined>(
   'fetchRate',
@@ -16,9 +14,8 @@ export const fetchRate = createAsyncThunk<Currencies, undefined>(
     const response = await axios.get(
       'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json'
     )
-    const filteredCurrency = response.data.filter(
-      (exchange: { cc: string }) =>
-        exchange.cc === 'USD' || exchange.cc === 'EUR' || exchange.cc === 'PLN'
+    const filteredCurrency = response.data.filter((exchange: { cc: string }) =>
+      currencyList.includes(exchange.cc)
     )
 
     const filteredCurrencyObj: Currencies = {
@@ -32,8 +29,8 @@ export const fetchRate = createAsyncThunk<Currencies, undefined>(
   }
 )
 
-export const currencySlice = createSlice({
-  name: 'currency',
+export const exchangeRateSlice = createSlice({
+  name: 'exchangeRate',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -44,4 +41,4 @@ export const currencySlice = createSlice({
   },
 })
 
-export default currencySlice.reducer
+export default exchangeRateSlice.reducer

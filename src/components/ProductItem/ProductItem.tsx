@@ -1,6 +1,4 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import { converting } from '../../redux/convertReducer'
-import { Currencies } from '../../redux/currencyReducer'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addProductToTotal } from '../../redux/totalReducer'
 import './ProductItem.scss'
@@ -18,10 +16,7 @@ const ProductItem = ({
   price,
   convertToSelectedCurrency,
 }: Props) => {
-  const isConverted = useAppSelector((state) => state.convertingPrice)
-
-  const selectedCurrency = useAppSelector((state) => state.convertingPrice)
-
+  const selectedCurrency = useAppSelector((state) => state.selectedCurrency)
   const dispatch = useAppDispatch()
 
   return (

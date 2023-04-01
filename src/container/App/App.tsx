@@ -7,9 +7,10 @@ import Total from '../../components/Total/Total'
 import ProductItems from '../../components/ProductItem/ProductItems'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { fetchRate } from '../../redux/currencyReducer'
+import { fetchRate } from '../../redux/exchangeRateReducer'
 
 type Props = {}
+
 const App = (props: Props) => {
   const dispatch = useAppDispatch()
 
@@ -17,7 +18,7 @@ const App = (props: Props) => {
     dispatch(fetchRate())
   }, [dispatch])
 
-  const currencies = useAppSelector((state) => state.currencyChange)
+  const currencies = useAppSelector((state) => state.exchangeRate)
 
   const convertToSelectedCurrency = (
     price: number,

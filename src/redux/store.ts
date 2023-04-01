@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import convertReducer from './convertReducer'
-import currencyReducer from './currencyReducer'
+import selectedCurrencyReducer from './selectedCurrencyReducer'
+import exchangeRateReducer from './exchangeRateReducer'
 import totalReducer from './totalReducer'
 
 export const store = configureStore({
   reducer: {
     totalPrice: totalReducer,
-    currencyChange: currencyReducer,
-    convertingPrice: convertReducer,
+    exchangeRate: exchangeRateReducer,
+    selectedCurrency: selectedCurrencyReducer,
   },
 })
 

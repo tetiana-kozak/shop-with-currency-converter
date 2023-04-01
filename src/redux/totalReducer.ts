@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-type State = number
-
-export const initialState: State = 0
+export const initialState: number = 0
 
 export const totalSlice = createSlice({
   name: 'totalPrice',

@@ -7,10 +7,7 @@ type Props = {
 
 const Total = ({ convertToSelectedCurrency }: Props) => {
   const totalPrice = useAppSelector((state) => state.totalPrice)
-  const convertedPrice = useAppSelector((state) => state.convertingPrice)
-  const isConverted = useAppSelector((state) => state.convertingPrice)
-
-  const selectedCurrency = useAppSelector((state) => state.convertingPrice)
+  const selectedCurrency = useAppSelector((state) => state.selectedCurrency)
 
   return (
     <div className="total">
