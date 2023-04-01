@@ -23,7 +23,7 @@ const App = (props: Props) => {
     price: number,
     selectedCurrency: string
   ) => {
-    const result = Math.round(price / currencies[selectedCurrency])
+    const result = +(price / currencies[selectedCurrency]).toFixed(2)
     return result
   }
 

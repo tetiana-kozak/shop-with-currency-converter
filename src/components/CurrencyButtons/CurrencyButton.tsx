@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { converting, selectedCurrency } from '../../redux/convertReducer'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 
@@ -8,12 +9,15 @@ const CurrencyButton = ({ currency }: Props) => {
   const totalPrice = useAppSelector((state) => state.totalPrice)
   const currencies = useAppSelector((state) => state.currencyChange)
 
+  const selectedCurrencyValue = useAppSelector((state) => state.convertingPrice)
+
   const dispatch = useAppDispatch()
   return (
     <button
-      className="button"
+      className={
+        selectedCurrencyValue === currency ? 'button active-button' : 'button'
+      }
       onClick={() => {
-        // dispatch(converting({ currency, totalPrice, currencies }))
         dispatch(selectedCurrency(currency))
       }}
     >

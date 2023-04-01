@@ -4,6 +4,7 @@
   margin-top: 40px;
   .button {
     padding: 5px 20px;
+    color: #252525;
     background-color: #fff;
     border: #252525 solid 1px;
     font-size: 16px;
@@ -16,5 +17,9 @@
       cursor: pointer;
       transition: all ease-in-out 0.3s;
     }
+  }
+  .active-button {
+    background-color: #252525;
+    color: #fff;
   }
 }
