@@ -39,7 +39,7 @@ const App = (props: Props) => {
           Product shop
         </Typography>
         <CurrencyButtons />
-        <Total />
+        <Total convertToSelectedCurrency={convertToSelectedCurrency} />
         <ProductItems convertToSelectedCurrency={convertToSelectedCurrency} />
       </Container>
     </StyledEngineProvider>
